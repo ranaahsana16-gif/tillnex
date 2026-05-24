@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Professional Dark Navy Theme */
+    --background: 231 38% 16%;
+    --foreground: 210 20% 98%;
+    
+    --card: 231 35% 21%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 231 35% 21%;
+    --popover-foreground: 210 20% 98%;
+    
+    /* Cyan Accent */
+    --primary: 180 100% 45%;
+    --primary-foreground: 231 38% 12%;
+    
+    /* Purple Secondary */
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 231 25% 26%;
+    --muted-foreground: 215 15% 70%;
+    
+    --accent: 231 30% 28%;
+    --accent-foreground: 210 20% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --border: 231 25% 26%;
+    --input: 231 25% 26%;
+    --ring: 180 100% 45%;
+    
+    --radius: 0.75rem;
+  }
+  
+  .dark {
+    --background: 231 38% 16%;
+    --foreground: 210 20% 98%;
+    
+    --card: 231 35% 21%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 231 35% 21%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 180 100% 45%;
+    --primary-foreground: 231 38% 12%;
+    
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 231 25% 26%;
+    --muted-foreground: 215 15% 70%;
+    
+    --accent: 231 30% 28%;
+    --accent-foreground: 210 20% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --border: 231 25% 26%;
+    --input: 231 25% 26%;
+    --ring: 180 100% 45%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Outfit", sans-serif;
+    text-wrap: balance;
+  }
+
+  @media (hover: hover) {
+    body, a, button, [role="button"], .cursor-pointer, input, textarea, select {
+      cursor: none !important;
+    }
+  }
+}

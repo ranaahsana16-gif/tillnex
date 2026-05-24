@@ -1,0 +1,17 @@
+<svg viewBox="16 27 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tillnex-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#f1f5f9" />
+      <stop offset="50%" stopColor="#94a3b8" />
+      <stop offset="100%" stopColor="#e2e8f0" />
+    </linearGradient>
+  </defs>
+  <path 
+    d="M62,38.5 C46.5,40 28.5,50 21.5,63 C15,75 19.5,85.5 32,87.5 C47,90 65,79 73.5,67 C65.5,75 49,81.5 36.5,79.5 C27,78 22.5,70.5 26.5,61.5 C31.5,50 48,40.5 62,38.5 Z" 
+    fill="url(#tillnex-logo-gradient)"
+  />
+  <path 
+    d="M76.5,33 L46.5,52.5 C51,50.5 54.5,51.5 55,54.5 L56.5,69.5 C60.5,56 68.5,44 76.5,33 Z" 
+    fill="url(#tillnex-logo-gradient)"
+  />
+</svg>
