@@ -215,7 +215,7 @@ export function PricingPage() {
                 
                 {/* Hidden Link directly represented by button to go to Ora Site */}
                 <a
-                  href="https://ranaahsana16-gif.github.io/Ora/"
+                  href="https://ora.tillnex.space/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full h-12 rounded-full text-sm font-semibold border border-border bg-card hover:bg-accent text-foreground transition-colors"
