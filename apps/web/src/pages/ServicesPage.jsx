@@ -41,8 +41,9 @@ function ServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Services | Tillnex</title>
-        <meta name="description" content="Explore our enterprise POS solutions, custom web development, and food ordering platforms." />
+        <title>Services | POS Systems, Web Dev & Ordering Apps | Tillnex</title>
+        <meta name="description" content="Explore our enterprise POS solutions, high-speed custom web development, and commission-free food ordering platforms built for restaurants and retail." />
+        <link rel="canonical" href="https://tillnex.space/services" />
       </Helmet>
       
       <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">

@@ -12,8 +12,9 @@ export function PricingPage() {
   return (
     <>
       <Helmet>
-        <title>Pricing & Products | Tillnex</title>
-        <meta name="description" content="View pricing plans for Tillnex Food Ordering Systems, custom web solutions, and POS waitlist details." />
+        <title>Pricing Plans & Custom Software Pricing | Tillnex</title>
+        <meta name="description" content="Affordable and transparent pricing plans for Tillnex food ordering systems, custom web architecture, and waitlist details for our high-speed POS software." />
+        <link rel="canonical" href="https://tillnex.space/pricing" />
       </Helmet>
 
       <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tillnex.space/sitemap.xml

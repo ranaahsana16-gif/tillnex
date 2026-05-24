@@ -51,8 +51,9 @@ function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Tillnex</title>
-        <meta name="description" content="Get in touch with Tillnex for POS, Web, and Ordering solutions." />
+        <title>Contact Us | Get a Software Consultation | Tillnex</title>
+        <meta name="description" content="Reach out to Tillnex for custom software, high-performance POS solutions, web development, and custom ordering apps. Request a consultation today." />
+        <link rel="canonical" href="https://tillnex.space/contact" />
       </Helmet>
       
       <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">

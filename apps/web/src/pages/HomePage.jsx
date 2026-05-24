@@ -14,8 +14,32 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Tillnex | Enterprise Software Solutions</title>
-        <meta name="description" content="Professional POS systems, custom website development, and intelligent food ordering solutions." />
+        <title>Tillnex | Enterprise POS Systems & Custom Software Solutions</title>
+        <meta name="description" content="Empower your business with Tillnex's enterprise-grade POS systems, high-speed custom web architectures, and seamless restaurant food ordering platforms." />
+        <link rel="canonical" href="https://tillnex.space" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareCompany",
+            "name": "Tillnex",
+            "url": "https://tillnex.space",
+            "logo": "https://tillnex.space/logo.svg",
+            "description": "Tillnex delivers enterprise-grade POS systems, custom web architectures, and seamless food ordering platforms designed for scalability and business growth.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "US"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "tillnexhq@gmail.com",
+              "contactType": "customer support",
+              "availableLanguage": "English"
+            },
+            "sameAs": [
+              "https://wa.me/16677788789"
+            ]
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}

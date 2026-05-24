@@ -7,8 +7,9 @@ function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Us | Tillnex</title>
-        <meta name="description" content="Learn about Tillnex and our mission to provide top-tier software solutions." />
+        <title>About Us | Tillnex Software Solutions</title>
+        <meta name="description" content="Learn about Tillnex and our mission to provide top-tier POS systems, custom websites, and restaurant ordering solutions." />
+        <link rel="canonical" href="https://tillnex.space/about" />
       </Helmet>
       
       <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">
