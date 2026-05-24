@@ -111,9 +111,15 @@ function ContactPage() {
                     </div>
                   </div>
                   
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" name="email" type="email" required placeholder="john@company.com" className="bg-background" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input id="email" name="email" type="email" required placeholder="john@company.com" className="bg-background" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input id="phone" name="phone" type="tel" required placeholder="+1 (555) 000-0000" className="bg-background" />
+                    </div>
                   </div>
                   
                   <div className="space-y-2">
