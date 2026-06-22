@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ExternalLink, Lock, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { ParticleBackground } from '@/components/ParticleBackground.jsx';
 
 export function PricingPage() {
   const navigate = useNavigate();
@@ -17,8 +18,11 @@ export function PricingPage() {
         <link rel="canonical" href="https://tillnex.space/pricing" />
       </Helmet>
 
-      <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden min-h-screen bg-background pt-16 md:pt-20 pb-24">
+        {/* Animated particles */}
+        <ParticleBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -53,10 +57,15 @@ export function PricingPage() {
           </div>
 
           {/* Pricing Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch" style={{ perspective: "1200px" }}>
             
             {/* Card 1: Custom Web Development */}
-            <div className="bg-card/40 backdrop-blur-md border border-border/80 rounded-3xl p-8 flex flex-col justify-between hover:border-slate-500/30 transition-all duration-300">
+            <motion.div 
+              whileHover={{ rotateX: 2, rotateY: -2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="bg-card/40 backdrop-blur-md border border-border/80 rounded-3xl p-8 flex flex-col justify-between hover:border-slate-500/30 transition-colors duration-300 shadow-lg hover:shadow-[0_20px_40px_rgba(0,243,243,0.05)]"
+            >
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-slate-500/10 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-6">
                   Custom Architecture
@@ -101,10 +110,15 @@ export function PricingPage() {
               >
                 Book Custom Consultation
               </Button>
-            </div>
+            </motion.div>
 
             {/* Card 2: Food Ordering System (FEATURED/POPULAR) */}
-            <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_40px_rgba(0,243,243,0.06)]">
+            <motion.div 
+              whileHover={{ rotateX: 2, rotateY: 2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="relative bg-card/60 backdrop-blur-md border-2 border-primary rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_40px_rgba(0,243,243,0.06)] hover:shadow-[0_20px_50px_rgba(0,243,243,0.15)] transition-shadow duration-300"
+            >
               {/* Highlight badge */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
                 Most Popular
@@ -224,10 +238,15 @@ export function PricingPage() {
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3: POS System (COMING SOON) */}
-            <div className="bg-card/40 backdrop-blur-md border border-border/80 rounded-3xl p-8 flex flex-col justify-between opacity-80 hover:opacity-100 hover:border-slate-500/30 transition-all duration-300 relative overflow-hidden">
+            <motion.div 
+              whileHover={{ rotateX: -2, rotateY: -2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="bg-card/40 backdrop-blur-md border border-border/80 rounded-3xl p-8 flex flex-col justify-between opacity-80 hover:opacity-100 hover:border-slate-500/30 shadow-lg hover:shadow-[0_20px_40px_rgba(245,158,11,0.08)] transition-all duration-300 relative overflow-hidden"
+            >
               <div className="absolute top-12 -right-16 bg-amber-500/10 text-amber-500 text-[10px] font-bold uppercase tracking-widest px-14 py-1.5 rotate-45 border border-amber-500/20">
                 Development
               </div>
@@ -279,7 +298,7 @@ export function PricingPage() {
               >
                 Join waitlist
               </Button>
-            </div>
+            </motion.div>
 
           </div>
 

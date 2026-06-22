@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Monitor, Code, ShoppingBag, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { FloatingShapes } from '@/components/BackgroundEffects.jsx';
 
 function ServicesPage() {
   const navigate = useNavigate();
@@ -46,8 +47,9 @@ function ServicesPage() {
         <link rel="canonical" href="https://tillnex.space/services" />
       </Helmet>
       
-      <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden min-h-screen bg-background pt-16 md:pt-20 pb-24">
+        <FloatingShapes />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-24">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground tracking-tight">Our Services</h1>
@@ -67,11 +69,20 @@ function ServicesPage() {
                 className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${service.reverse ? 'lg:flex-row-reverse' : ''}`}
               >
                 {/* Visual Side */}
-                <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-card border border-border flex items-center justify-center p-8 group">
+                <div className="w-full lg:w-1/2" style={{ perspective: "1000px" }}>
+                  <motion.div 
+                    whileHover={{ rotateX: 5, rotateY: service.reverse ? 5 : -5, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    style={{ transformStyle: "preserve-3d" }}
+                    className="relative aspect-square md:aspect-[4/3] rounded-3xl bg-card/60 backdrop-blur-sm border border-border flex items-center justify-center p-8 group shadow-xl hover:shadow-[0_20px_40px_rgba(0,243,243,0.1)] transition-shadow duration-500"
+                  >
+                    {/* Glowing pseudo border */}
+                    <div className="absolute inset-0 rounded-3xl border border-primary/0 group-hover:border-primary/50 transition-colors duration-500 z-10 pointer-events-none" style={{ transform: "translateZ(10px)" }} />
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <service.icon className="w-32 h-32 text-primary/80 group-hover:scale-110 group-hover:text-primary transition-all duration-500" />
-                  </div>
+                    <motion.div style={{ transform: "translateZ(40px)" }}>
+                      <service.icon className="w-32 h-32 text-primary/80 group-hover:scale-110 group-hover:text-primary transition-all duration-500" />
+                    </motion.div>
+                  </motion.div>
                 </div>
 
                 {/* Content Side */}

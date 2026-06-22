@@ -5,6 +5,7 @@ import { StatCard } from '@/components/StatCard.jsx';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, Rocket, Target, Shield, Lightbulb, Code2, Database, Globe, Smartphone, Layers, Cpu, Server, Palette } from 'lucide-react';
+import { FloatingShapes } from '@/components/BackgroundEffects.jsx';
 
 const techStack = [
   { name: 'React', icon: Code2, color: 'text-cyan-400' },
@@ -55,8 +56,9 @@ function AboutPage() {
         <link rel="canonical" href="https://tillnex.space/about" />
       </Helmet>
       
-      <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden min-h-screen bg-background pt-16 md:pt-20 pb-24">
+        <FloatingShapes />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
           <motion.div
@@ -146,8 +148,14 @@ function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="mb-24"
+            style={{ perspective: "1000px" }}
           >
-            <div className="bg-card/40 backdrop-blur-md border border-border/60 rounded-3xl p-8 lg:p-12 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500">
+            <motion.div 
+              whileHover={{ rotateX: 2, rotateY: -2, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="bg-card/40 backdrop-blur-md border border-border/60 rounded-3xl p-8 lg:p-12 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500 shadow-xl hover:shadow-[0_20px_40px_rgba(0,243,243,0.08)]"
+            >
               {/* Glow accent */}
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px] -mr-[200px] -mt-[200px] pointer-events-none" />
               
@@ -188,7 +196,7 @@ function AboutPage() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Stats */}
@@ -220,15 +228,17 @@ function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto" style={{ perspective: "800px" }}>
               {techStack.map((tech, index) => (
                 <motion.div
                   key={tech.name}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ rotateX: 10, rotateY: 10, scale: 1.05, z: 20 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.04 }}
-                  className="bg-card/40 backdrop-blur-sm border border-border/60 rounded-2xl p-5 flex flex-col items-center gap-3 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group"
+                  style={{ transformStyle: "preserve-3d" }}
+                  className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-2xl p-5 flex flex-col items-center gap-3 hover:border-primary/30 hover:shadow-[0_10px_20px_rgba(0,243,243,0.1)] transition-colors duration-300 group"
                 >
                   <tech.icon className={`w-7 h-7 ${tech.color} group-hover:scale-110 transition-transform duration-200`} />
                   <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">

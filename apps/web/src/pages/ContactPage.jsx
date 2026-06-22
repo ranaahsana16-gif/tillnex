@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { LoadingSpinner } from '@/components/LoadingSpinner.jsx';
+import { FloatingShapes } from '@/components/BackgroundEffects.jsx';
 
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,8 +57,9 @@ function ContactPage() {
         <link rel="canonical" href="https://tillnex.space/contact" />
       </Helmet>
       
-      <div className="min-h-screen bg-background pt-16 md:pt-20 pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden min-h-screen bg-background pt-16 md:pt-20 pb-24">
+        <FloatingShapes />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground tracking-tight">Let's Talk Business</h1>
@@ -66,10 +68,17 @@ function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto" style={{ perspective: "1200px" }}>
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-8">
-              <div className="bg-card border border-border rounded-2xl p-8">
+              <motion.div 
+                whileHover={{ rotateX: 2, rotateY: 2, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="bg-card/40 backdrop-blur-md border border-border/60 rounded-2xl p-8 shadow-lg hover:shadow-[0_20px_40px_rgba(0,243,243,0.05)] transition-shadow duration-300 relative"
+              >
+                {/* Glow accent */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" style={{ transform: "translateZ(1px)" }} />
                 <h3 className="text-xl font-bold text-foreground mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">
@@ -93,13 +102,21 @@ function ContactPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Form */}
             <div className="lg:col-span-2">
-              <div className="bg-card border border-border rounded-2xl p-8 md:p-10 shadow-sm">
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <motion.div 
+                whileHover={{ rotateX: 2, rotateY: -2, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="bg-card/40 backdrop-blur-md border border-border/60 rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-[0_20px_40px_rgba(0,243,243,0.05)] transition-shadow duration-300 relative"
+              >
+                {/* Glow accent */}
+                <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" style={{ transform: "translateZ(1px)" }} />
+                
+                <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name</Label>
@@ -164,7 +181,7 @@ function ContactPage() {
                     )}
                   </Button>
                 </form>
-              </div>
+              </motion.div>
             </div>
           </div>
 
