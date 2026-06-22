@@ -1,12 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { cn } from '@/lib/utils.js';
 
 export function ParticleBackground({ className }) {
   const containerRef = useRef(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mql.matches);
+    const handler = (e) => setPrefersReducedMotion(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion || !containerRef.current) return;
 
     // Dimensions
     let width = containerRef.current.clientWidth || window.innerWidth;
@@ -195,7 +204,19 @@ export function ParticleBackground({ className }) {
       material.dispose();
       particleTexture.dispose();
     };
-  }, []);
+  }, [prefersReducedMotion]);
+
+  // If user prefers reduced motion, render a subtle static gradient instead
+  if (prefersReducedMotion) {
+    return (
+      <div
+        className={cn('absolute inset-0 pointer-events-none overflow-hidden select-none', className)}
+        style={{
+          background: 'radial-gradient(ellipse at 30% 50%, rgba(0, 243, 243, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(189, 52, 254, 0.04) 0%, transparent 60%)',
+        }}
+      />
+    );
+  }
 
   return (
     <div 
@@ -204,3 +225,4 @@ export function ParticleBackground({ className }) {
     />
   );
 }
+

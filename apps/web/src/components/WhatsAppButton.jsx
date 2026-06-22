@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
 
 export function WhatsAppButton() {
-  const phoneNumber = "16677788789";
+  const phoneNumber = "92395121676";
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
   const [showPopup, setShowPopup] = useState(false);
 
@@ -37,7 +37,7 @@ export function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="absolute bottom-16 right-0 w-72 bg-card/95 backdrop-blur-xl border border-border/90 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border-emerald-500/20 select-none text-left"
+            className="absolute bottom-16 right-0 w-72 max-w-[calc(100vw-4rem)] bg-card/95 backdrop-blur-xl border border-border/90 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)] border-emerald-500/20 select-none text-left"
           >
             {/* Speech bubble pointer pointing down to the WhatsApp button */}
             <div className="absolute -bottom-1.5 right-[18px] w-3 h-3 bg-card border-r border-b border-border/90 rotate-45" />

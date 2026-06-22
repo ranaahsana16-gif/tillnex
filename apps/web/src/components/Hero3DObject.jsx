@@ -137,11 +137,46 @@ export function Hero3DObject({ className }) {
       isDragging = false;
     };
 
+    // Touch event handlers for mobile/tablet support
+    const handleTouchStart = (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const deltaMove = {
+          x: touch.clientX - previousMousePosition.x,
+          y: touch.clientY - previousMousePosition.y,
+        };
+
+        if (isDragging) {
+          systemGroup.rotation.y += deltaMove.x * 0.007;
+          systemGroup.rotation.x += deltaMove.y * 0.007;
+
+          rotationVelocity.y = deltaMove.x * 0.0015;
+          rotationVelocity.x = deltaMove.y * 0.0015;
+        }
+
+        previousMousePosition = { x: touch.clientX, y: touch.clientY };
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isDragging = false;
+    };
+
     // Attach listeners to container so they only trigger when interacting with the canvas
     const domElement = containerRef.current;
     domElement.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
+    domElement.addEventListener('touchstart', handleTouchStart, { passive: true });
+    domElement.addEventListener('touchmove', handleTouchMove, { passive: true });
+    domElement.addEventListener('touchend', handleTouchEnd);
 
     // Resize handler
     const handleResize = () => {
@@ -215,6 +250,9 @@ export function Hero3DObject({ className }) {
       domElement.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
+      domElement.removeEventListener('touchstart', handleTouchStart);
+      domElement.removeEventListener('touchmove', handleTouchMove);
+      domElement.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('resize', handleResize);
       if (renderer && renderer.domElement && containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);

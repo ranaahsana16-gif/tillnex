@@ -69,13 +69,19 @@ export default function Footer() {
                 <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
               </li>
               <li>
+                <Link to="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
               </li>
               <li>
                 <Link to="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-primary transition-colors">Our Mission</Link>
               </li>
             </ul>
           </div>
@@ -116,8 +122,8 @@ export default function Footer() {
             <span className="text-slate-400">All systems operational</span>
           </div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

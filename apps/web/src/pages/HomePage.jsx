@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { ArrowRight, Monitor, ShoppingBag, Code, ChevronRight, Star } from 'lucide-react';
-import { ParticleBackground } from '@/components/ParticleBackground.jsx';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { ServiceCard } from '@/components/ServiceCard.jsx';
 import { Hero3DObject } from '@/components/Hero3DObject.jsx';
+import { ClientLogos } from '@/components/ClientLogos.jsx';
 
 function HomePage() {
   const navigate = useNavigate();
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mql.matches);
+    const handler = (e) => setPrefersReducedMotion(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
 
   return (
     <>
@@ -36,7 +45,7 @@ function HomePage() {
               "availableLanguage": "English"
             },
             "sameAs": [
-              "https://wa.me/16677788789"
+              "https://wa.me/92395121676"
             ]
           })}
         </script>
@@ -44,16 +53,14 @@ function HomePage() {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-background pt-16 md:pt-20 pb-16 md:pb-24">
-        <ParticleBackground className="absolute inset-0 z-0 opacity-80" />
-        
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Text Column */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
               className="lg:col-span-7 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-8">
@@ -92,9 +99,9 @@ function HomePage() {
 
             {/* Interactive 3D Graphic Column */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={prefersReducedMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="lg:col-span-5 w-full flex justify-center items-center"
             >
               <Hero3DObject />
@@ -103,6 +110,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Client Logos Marquee */}
+      <ClientLogos />
 
       {/* Services Section */}
       <section className="py-24 bg-card">

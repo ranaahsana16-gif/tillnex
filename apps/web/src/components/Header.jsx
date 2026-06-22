@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils.js';
 import { LogoSvg } from '@/components/LogoSvg.jsx';
@@ -8,20 +8,22 @@ import { AnimatePresence, motion } from 'framer-motion';
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
+  { label: 'Portfolio', to: '/portfolio' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
 
 export default function Header() {
-  const [scrollPercent, setScrollPercent] = useState(0);
+  const progressRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScrollHeight > 0) {
-        setScrollPercent((window.scrollY / totalScrollHeight) * 100);
+      if (totalScrollHeight > 0 && progressRef.current) {
+        const percent = (window.scrollY / totalScrollHeight) * 100;
+        progressRef.current.style.width = `${percent}%`;
       }
     };
 
@@ -120,8 +122,9 @@ export default function Header() {
 
       {/* Futuristic Scroll Progress Line */}
       <div 
+        ref={progressRef}
         className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-primary transition-all duration-75"
-        style={{ width: `${scrollPercent}%` }}
+        style={{ width: '0%' }}
       />
     </header>
   );

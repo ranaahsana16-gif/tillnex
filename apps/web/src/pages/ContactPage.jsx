@@ -89,7 +89,7 @@ function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-foreground mb-1">WhatsApp Us</p>
-                      <a href="https://wa.me/16677788789" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">+1 (667) 778-8789</a>
+                      <a href="https://wa.me/92395121676" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">+92 395 121676</a>
                     </div>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ExternalLink, Lock, HelpCircle, Smartphone, Info } from 'lucide-react';
+import { Check, ExternalLink, Lock, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -116,7 +116,7 @@ export function PricingPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2">Food Ordering System</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  Automated restaurant delivery and menu system like our **Ora Ordering** ecosystem.
+                  Automated restaurant delivery and menu system like our <strong>Ora Ordering</strong> ecosystem.
                 </p>
                 
                 {/* Dynamic Price Display */}
@@ -131,12 +131,12 @@ export function PricingPage() {
                         transition={{ duration: 0.15 }}
                       >
                         <div className="flex flex-col gap-1">
-                          <div>
+                          <div className="whitespace-nowrap">
                             <span className="text-3xl font-extrabold text-foreground">35,000 PKR</span>
                             <span className="text-muted-foreground text-sm"> / year</span>
                             <span className="text-[10px] text-primary block mt-0.5">(Website Only Plan)</span>
                           </div>
-                          <div className="mt-2 pt-2 border-t border-border/40">
+                          <div className="mt-2 pt-2 border-t border-border/40 whitespace-nowrap">
                             <span className="text-3xl font-extrabold text-foreground">45,000 PKR</span>
                             <span className="text-muted-foreground text-sm"> / year</span>
                             <span className="text-[10px] text-primary block mt-0.5">(Website + Android App Plan)</span>
@@ -152,12 +152,12 @@ export function PricingPage() {
                         transition={{ duration: 0.15 }}
                       >
                         <div className="flex flex-col gap-1">
-                          <div>
+                          <div className="whitespace-nowrap">
                             <span className="text-3xl font-extrabold text-foreground">15,000 PKR</span>
                             <span className="text-muted-foreground text-xs"> setup + 4,500/mo</span>
                             <span className="text-[10px] text-primary block mt-0.5">(Website Only Plan)</span>
                           </div>
-                          <div className="mt-2 pt-2 border-t border-border/40">
+                          <div className="mt-2 pt-2 border-t border-border/40 whitespace-nowrap">
                             <span className="text-3xl font-extrabold text-foreground">20,000 PKR</span>
                             <span className="text-muted-foreground text-xs"> setup + 5,000/mo</span>
                             <span className="text-[10px] text-primary block mt-0.5">(Website + Android App Plan)</span>
@@ -174,7 +174,7 @@ export function PricingPage() {
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-muted-foreground">Automated Web + **Android App**</span>
+                      <span className="text-muted-foreground">Automated Web + <strong>Android App</strong></span>
                       <span className="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded ml-1.5 font-mono">iOS Coming Soon</span>
                     </div>
                   </li>
@@ -287,7 +287,7 @@ export function PricingPage() {
           <div className="max-w-3xl mx-auto mt-16 p-6 rounded-2xl bg-card/20 border border-border/40 flex items-start gap-4">
             <Info className="w-6 h-6 text-primary shrink-0 mt-0.5" />
             <p className="text-xs text-muted-foreground leading-relaxed">
-              **Note:** The prices displayed represent baseline product configurations. Prices can vary and are adjusted based on the client's custom parameters, hosting, expected traffic scale, custom integrations, or location bounds. Contact us to get a personalized quote.
+              <strong>Note:</strong> The prices displayed represent baseline product configurations. Prices can vary and are adjusted based on the client's custom parameters, hosting, expected traffic scale, custom integrations, or location bounds. Contact us to get a personalized quote.
             </p>
           </div>
 

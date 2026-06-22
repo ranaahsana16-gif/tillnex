@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes, BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Toaster } from 'sonner';
@@ -8,13 +8,29 @@ import Footer from '@/components/Footer.jsx';
 import { ParticleBackground } from '@/components/ParticleBackground.jsx';
 import { CustomCursor } from '@/components/CustomCursor.jsx';
 import { WhatsAppButton } from '@/components/WhatsAppButton.jsx';
+import { BackToTop } from '@/components/BackToTop.jsx';
 import ScrollToTop from '@/components/ScrollToTop.jsx';
+import { LoadingSpinner } from '@/components/LoadingSpinner.jsx';
 
-import HomePage from '@/pages/HomePage.jsx';
-import ServicesPage from '@/pages/ServicesPage.jsx';
-import AboutPage from '@/pages/AboutPage.jsx';
-import ContactPage from '@/pages/ContactPage.jsx';
-import PricingPage from '@/pages/PricingPage.jsx';
+// Lazy-loaded pages for performance
+const HomePage = React.lazy(() => import('@/pages/HomePage.jsx'));
+const ServicesPage = React.lazy(() => import('@/pages/ServicesPage.jsx'));
+const AboutPage = React.lazy(() => import('@/pages/AboutPage.jsx'));
+const ContactPage = React.lazy(() => import('@/pages/ContactPage.jsx'));
+const PricingPage = React.lazy(() => import('@/pages/PricingPage.jsx'));
+const PortfolioPage = React.lazy(() => import('@/pages/PortfolioPage.jsx'));
+const FAQPage = React.lazy(() => import('@/pages/FAQPage.jsx'));
+const BlogPage = React.lazy(() => import('@/pages/BlogPage.jsx'));
+const PrivacyPolicyPage = React.lazy(() => import('@/pages/PrivacyPolicyPage.jsx'));
+const TermsOfServicePage = React.lazy(() => import('@/pages/TermsOfServicePage.jsx'));
+
+function SuspenseFallback() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <LoadingSpinner />
+    </div>
+  );
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -23,19 +39,34 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={
-          <PageWrapper><HomePage /></PageWrapper>
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><HomePage /></Suspense></PageWrapper>
         } />
         <Route path="/services" element={
-          <PageWrapper><ServicesPage /></PageWrapper>
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><ServicesPage /></Suspense></PageWrapper>
         } />
         <Route path="/about" element={
-          <PageWrapper><AboutPage /></PageWrapper>
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><AboutPage /></Suspense></PageWrapper>
         } />
         <Route path="/contact" element={
-          <PageWrapper><ContactPage /></PageWrapper>
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><ContactPage /></Suspense></PageWrapper>
         } />
         <Route path="/pricing" element={
-          <PageWrapper><PricingPage /></PageWrapper>
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><PricingPage /></Suspense></PageWrapper>
+        } />
+        <Route path="/portfolio" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><PortfolioPage /></Suspense></PageWrapper>
+        } />
+        <Route path="/faq" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><FAQPage /></Suspense></PageWrapper>
+        } />
+        <Route path="/blog" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><BlogPage /></Suspense></PageWrapper>
+        } />
+        <Route path="/privacy-policy" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><PrivacyPolicyPage /></Suspense></PageWrapper>
+        } />
+        <Route path="/terms-of-service" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><TermsOfServicePage /></Suspense></PageWrapper>
         } />
         <Route path="*" element={
           <PageWrapper>
@@ -74,6 +105,7 @@ function App() {
       <div className="relative flex flex-col min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
         <CustomCursor />
         <WhatsAppButton />
+        <BackToTop />
         <ParticleBackground className="fixed inset-0 z-0 opacity-20 pointer-events-none" />
         
         <div className="fixed inset-0 z-0 bg-[linear-gradient(to_right,_rgba(255,255,255,0.015)_1px,_transparent_1px),_linear-gradient(to_bottom,_rgba(255,255,255,0.015)_1px,_transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
