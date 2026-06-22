@@ -18,9 +18,7 @@ const ServicesPage = React.lazy(() => import('@/pages/ServicesPage.jsx'));
 const AboutPage = React.lazy(() => import('@/pages/AboutPage.jsx'));
 const ContactPage = React.lazy(() => import('@/pages/ContactPage.jsx'));
 const PricingPage = React.lazy(() => import('@/pages/PricingPage.jsx'));
-const PortfolioPage = React.lazy(() => import('@/pages/PortfolioPage.jsx'));
 const FAQPage = React.lazy(() => import('@/pages/FAQPage.jsx'));
-const BlogPage = React.lazy(() => import('@/pages/BlogPage.jsx'));
 const PrivacyPolicyPage = React.lazy(() => import('@/pages/PrivacyPolicyPage.jsx'));
 const TermsOfServicePage = React.lazy(() => import('@/pages/TermsOfServicePage.jsx'));
 
@@ -53,14 +51,8 @@ function AnimatedRoutes() {
         <Route path="/pricing" element={
           <PageWrapper><Suspense fallback={<SuspenseFallback />}><PricingPage /></Suspense></PageWrapper>
         } />
-        <Route path="/portfolio" element={
-          <PageWrapper><Suspense fallback={<SuspenseFallback />}><PortfolioPage /></Suspense></PageWrapper>
-        } />
         <Route path="/faq" element={
           <PageWrapper><Suspense fallback={<SuspenseFallback />}><FAQPage /></Suspense></PageWrapper>
-        } />
-        <Route path="/blog" element={
-          <PageWrapper><Suspense fallback={<SuspenseFallback />}><BlogPage /></Suspense></PageWrapper>
         } />
         <Route path="/privacy-policy" element={
           <PageWrapper><Suspense fallback={<SuspenseFallback />}><PrivacyPolicyPage /></Suspense></PageWrapper>

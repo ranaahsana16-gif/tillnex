@@ -88,10 +88,10 @@ function AboutPage() {
               <h2 className="text-3xl font-bold text-foreground">Our Story</h2>
               <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  Founded with a clear vision, Tillnex emerged from the realization that too many businesses were held back by disjointed, legacy software. Restaurants struggled with high delivery commissions, and retailers battled complex, outdated POS systems.
+                  Founded with a clear vision by Rana Ahsan, Tillnex emerged from the realization that too many businesses were held back by disjointed, legacy software. Restaurants struggled with high delivery commissions, and retailers battled complex, outdated POS systems.
                 </p>
                 <p>
-                  We set out to build cohesive ecosystems. By combining enterprise-grade POS solutions with modern web architectures and bespoke ordering systems, we provide our clients with a unified, powerful technological foundation.
+                  Rana Ahsan set out to build cohesive ecosystems. By combining enterprise-grade POS solutions with modern web architectures and bespoke ordering systems, we provide our clients with a unified, powerful technological foundation.
                 </p>
               </div>
             </motion.div>
@@ -138,6 +138,58 @@ function AboutPage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Meet the Founder */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-24"
+          >
+            <div className="bg-card/40 backdrop-blur-md border border-border/60 rounded-3xl p-8 lg:p-12 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500">
+              {/* Glow accent */}
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px] -mr-[200px] -mt-[200px] pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-3xl lg:text-4xl uppercase"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(180 100% 45% / 0.15), hsl(280 80% 60% / 0.15))",
+                    color: "hsl(180 100% 45%)",
+                    border: "2px solid hsl(180 100% 45% / 0.3)"
+                  }}
+                >
+                  RA
+                </div>
+                <div className="flex-grow text-center md:text-left">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">Rana Ahsan</h3>
+                  <p className="text-primary font-medium mb-4">Founder & CEO of TillNex</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+                    A professional Full-Stack Developer, Flutter Developer, and UI/UX Designer dedicated to creating scalable business software, innovative POS solutions, and dynamic SaaS platforms.
+                  </p>
+                  
+                  {/* Skills/Roles */}
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                    <span className="px-3 py-1 bg-background border border-border rounded-full text-xs font-medium flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5 text-cyan-400" /> Full-Stack</span>
+                    <span className="px-3 py-1 bg-background border border-border rounded-full text-xs font-medium flex items-center gap-1.5"><Smartphone className="w-3.5 h-3.5 text-blue-400" /> Flutter Apps</span>
+                    <span className="px-3 py-1 bg-background border border-border rounded-full text-xs font-medium flex items-center gap-1.5"><Palette className="w-3.5 h-3.5 text-purple-400" /> UI/UX Design</span>
+                    <span className="px-3 py-1 bg-background border border-border rounded-full text-xs font-medium flex items-center gap-1.5"><Server className="w-3.5 h-3.5 text-green-400" /> POS Architecture</span>
+                  </div>
+
+                  <a 
+                    href="https://portfolio.tillnex.space" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                  >
+                    <Globe className="w-4 h-4" />
+                    Visit Portfolio
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Stats */}
           <motion.div
