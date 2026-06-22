@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { ServiceCard } from "@/components/ServiceCard.jsx";
 import { Hero3DObject } from "@/components/Hero3DObject.jsx";
 import { ClientLogos } from "@/components/ClientLogos.jsx";
+import { ParticleBackground } from "@/components/ParticleBackground.jsx";
 
 /* ─── CSS keyframes injected once ─── */
 const inlineKeyframes = `
@@ -286,6 +287,11 @@ function HomePage() {
 
       {/* ═══════ HERO SECTION ═══════ */}
       <section className="relative overflow-hidden bg-background pt-16 md:pt-20 pb-16 md:pb-24">
+        {/* Animated particles */}
+        {!prefersReducedMotion && (
+          <ParticleBackground className="absolute inset-0 z-0 opacity-40 pointer-events-none" />
+        )}
+
         {/* Floating geometric shapes */}
         <FloatingShapes />
 
