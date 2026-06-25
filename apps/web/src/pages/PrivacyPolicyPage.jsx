@@ -76,7 +76,7 @@ To exercise any of these rights, please contact us using the details provided be
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us:
 
 • **Email**: tillnexhq@gmail.com
-• **WhatsApp**: +92 395 121676
+• **WhatsApp**: +92 308 5121676
 • **Contact Form**: https://tillnex.space/contact
 
 We are committed to resolving any privacy concerns promptly and transparently.`,

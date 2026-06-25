@@ -188,7 +188,7 @@ function HomePage() {
               "availableLanguage": "English"
             },
             "sameAs": [
-              "https://wa.me/92395121676"
+              "https://wa.me/923085121676"
             ]
           })}
         </script>

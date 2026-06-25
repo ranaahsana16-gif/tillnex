@@ -84,7 +84,7 @@ Your continued use of the Services after any changes constitutes your acceptance
     content: `If you have any questions or concerns about these Terms of Service, please contact us:
 
 • **Email**: tillnexhq@gmail.com
-• **WhatsApp**: +92 395 121676
+• **WhatsApp**: +92 308 5121676
 • **Contact Form**: https://tillnex.space/contact
 
 We aim to respond to all enquiries within 48 business hours.`,
