@@ -21,6 +21,7 @@ const PricingPage = React.lazy(() => import('@/pages/PricingPage.jsx'));
 const FAQPage = React.lazy(() => import('@/pages/FAQPage.jsx'));
 const PrivacyPolicyPage = React.lazy(() => import('@/pages/PrivacyPolicyPage.jsx'));
 const TermsOfServicePage = React.lazy(() => import('@/pages/TermsOfServicePage.jsx'));
+const CareersPage = React.lazy(() => import('@/pages/CareersPage.jsx'));
 
 function SuspenseFallback() {
   return (
@@ -59,6 +60,9 @@ function AnimatedRoutes() {
         } />
         <Route path="/terms-of-service" element={
           <PageWrapper><Suspense fallback={<SuspenseFallback />}><TermsOfServicePage /></Suspense></PageWrapper>
+        } />
+        <Route path="/careers" element={
+          <PageWrapper><Suspense fallback={<SuspenseFallback />}><CareersPage /></Suspense></PageWrapper>
         } />
         <Route path="*" element={
           <PageWrapper>
